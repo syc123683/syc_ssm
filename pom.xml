@@ -59,11 +59,6 @@
 		    <version>${spring.version}</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
-		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-context</artifactId>
-		    <version>${spring.version}</version>
-		</dependency>
 				
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
 		<dependency>
@@ -124,4 +119,47 @@
 		
 		
 	</dependencies>
+	
+	<build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+		           <groupId>org.mybatis.generator</groupId>
+		           <artifactId>mybatis-generator-maven-plugin</artifactId>
+		           <version>${mybatis.genarater.version}</version>
+		           <executions>
+		              <execution>
+		                 <id>Generate MyBatis Files</id>
+		                 <goals>
+		                    <goal>generate</goal>
+		                 </goals>
+		                 <phase>generate</phase>
+		                 <configuration>
+		                    <verbose>true</verbose>
+		                    <overwrite>true</overwrite>
+		                 </configuration>
+		              </execution>
+		           </executions>
+           <dependencies>
+              <dependency>
+                 <groupId>mysql</groupId>
+                 <artifactId>mysql-connector-java</artifactId>
+                 <version>${mysql.connector.version}</version>
+              </dependency>
+              <dependency>
+                 <groupId>org.mybatis.generator</groupId>
+          		 <artifactId>mybatis-generator-core</artifactId>
+                 <version>${mybatis.genarater.version}</version>
+              </dependency>
+              <dependency>
+                 <groupId>org.mybatis</groupId>
+                 <artifactId>mybatis</artifactId>
+                 <version>${mybatis.version}</version>
+              </dependency>
+           </dependencies>
+        </plugin>
+            </plugins>
+        </pluginManagement>
+ </build>
+	
 </project>
