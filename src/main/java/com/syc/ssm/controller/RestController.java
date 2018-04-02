@@ -9,6 +9,6 @@ public class RestController {
 	@RequestMapping(value="/sayHello",method = RequestMethod.GET)
 	@ResponseBody
 	public String sayHello(){
-        return "{\"returncode\":0,\"message\":\"hello worldsyc\"}";
+        return "{\"returncode\":0,\"message\":\"hello 李曌\"}";
     }
 }
