@@ -12,8 +12,8 @@
        	<mybatis.genarater.version>1.3.6</mybatis.genarater.version>
        	<mysql.connector.version>6.0.6</mysql.connector.version>
        	<druid.version>1.1.9</druid.version>
-       	<fastjson.version>1.2.47</fastjson.version>
        	<junit.version>4.12</junit.version>
+       	<jackson.version>2.9.4</jackson.version>
     </properties>
 
 
@@ -102,12 +102,6 @@
 		</dependency>
 		
 		
-		<!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
-		<dependency>
-		    <groupId>com.alibaba</groupId>
-		    <artifactId>fastjson</artifactId>
-		    <version>${fastjson.version}</version>
-		</dependency>
 	
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
@@ -116,7 +110,20 @@
 		    <version>${junit.version}</version>
 		    <scope>test</scope>
 		</dependency>
+			
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>${jackson.version}</version>
+		</dependency>
 		
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-core</artifactId>
+		    <version>${jackson.version}</version>
+		</dependency>
 		
 	</dependencies>
 	
