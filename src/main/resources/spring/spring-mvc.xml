@@ -8,11 +8,12 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 		
 	<mvc:annotation-driven>
+		 <!--  另外一种解决中文问题的方式
 		<mvc:message-converters register-defaults="true">  
      		 <bean class="org.springframework.http.converter.StringHttpMessageConverter">  
      			   <property name="supportedMediaTypes" value="text/html;charset=UTF-8"/>  
     		  </bean>  
-    	</mvc:message-converters> 
+    	</mvc:message-converters>  -->
 	</mvc:annotation-driven>
 	<context:component-scan base-package="com.syc.ssm.controller"/>	
 	
@@ -33,7 +34,13 @@
         </property>
     </bean>
     <bean id="jsonConverter"
-          class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></bean>
+          class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+          <property name="supportedMediaTypes">
+            <list>
+                <value>text/html;charset=UTF-8</value>
+            </list>
+        </property>
+          </bean>
     <bean
             class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
         <property name="messageConverters">
