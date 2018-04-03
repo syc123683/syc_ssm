@@ -2,13 +2,9 @@ package com.syc.ssm.dao;
 
 import com.syc.ssm.domain.SysUser;
 import com.syc.ssm.domain.SysUserExample;
-
 import java.util.List;
-
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
 
-@Repository
 public interface SysUserMapper {
     long countByExample(SysUserExample example);
 
@@ -20,9 +16,6 @@ public interface SysUserMapper {
 
     List<SysUser> selectByExample(SysUserExample example);
 
-    List<SysUser> selectByCustomer();
-    
-    
     int updateByExampleSelective(@Param("record") SysUser record, @Param("example") SysUserExample example);
 
     int updateByExample(@Param("record") SysUser record, @Param("example") SysUserExample example);

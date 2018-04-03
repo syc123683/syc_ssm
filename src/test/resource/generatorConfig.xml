@@ -43,7 +43,7 @@
         <property name="enableSubPackages" value="true"/>  
     </javaClientGenerator>  
   
-    <table tableName="sys_user" >  
+    <table tableName="sys_user">  
     </table> 
      <table tableName="sys_part">  
     </table> 

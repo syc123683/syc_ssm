@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.syc.ssm.dao.SysRoleMapper">
-  <resultMap id="BaseResultMap" type="com.syc.ssm.domain.SysRole">
-    <result column="id" jdbcType="BIGINT" property="id" />
-    <result column="role_name" jdbcType="VARCHAR" property="roleName" />
+<mapper namespace="com.syc.ssm.dao.SysPartMapper">
+  <resultMap id="BaseResultMap" type="com.syc.ssm.domain.SysPart">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="part_name" jdbcType="VARCHAR" property="partName" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -64,15 +64,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, role_name
+    id, part_name
   </sql>
-  <select id="selectByExample" parameterType="com.syc.ssm.domain.SysRoleExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.syc.ssm.domain.SysPartExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from sys_role
+    from sys_part
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -80,49 +80,49 @@
       order by ${orderByClause}
     </if>
   </select>
-  <delete id="deleteByExample" parameterType="com.syc.ssm.domain.SysRoleExample">
-    delete from sys_role
+  <delete id="deleteByExample" parameterType="com.syc.ssm.domain.SysPartExample">
+    delete from sys_part
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.syc.ssm.domain.SysRole">
-    insert into sys_role (id, role_name)
-    values (#{id,jdbcType=BIGINT}, #{roleName,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="com.syc.ssm.domain.SysPart">
+    insert into sys_part (id, part_name)
+    values (#{id,jdbcType=INTEGER}, #{partName,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.syc.ssm.domain.SysRole">
-    insert into sys_role
+  <insert id="insertSelective" parameterType="com.syc.ssm.domain.SysPart">
+    insert into sys_part
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
       </if>
-      <if test="roleName != null">
-        role_name,
+      <if test="partName != null">
+        part_name,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
-        #{id,jdbcType=BIGINT},
+        #{id,jdbcType=INTEGER},
       </if>
-      <if test="roleName != null">
-        #{roleName,jdbcType=VARCHAR},
+      <if test="partName != null">
+        #{partName,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.syc.ssm.domain.SysRoleExample" resultType="java.lang.Long">
-    select count(*) from sys_role
+  <select id="countByExample" parameterType="com.syc.ssm.domain.SysPartExample" resultType="java.lang.Long">
+    select count(*) from sys_part
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update sys_role
+    update sys_part
     <set>
       <if test="record.id != null">
-        id = #{record.id,jdbcType=BIGINT},
+        id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.roleName != null">
-        role_name = #{record.roleName,jdbcType=VARCHAR},
+      <if test="record.partName != null">
+        part_name = #{record.partName,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -130,9 +130,9 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update sys_role
-    set id = #{record.id,jdbcType=BIGINT},
-      role_name = #{record.roleName,jdbcType=VARCHAR}
+    update sys_part
+    set id = #{record.id,jdbcType=INTEGER},
+      part_name = #{record.partName,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
